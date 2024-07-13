@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:islami_app/constant.dart';
+import 'package:islami_app/taps/ahadeeth_tab.dart';
+import 'package:islami_app/taps/quraan_tab.dart';
+import 'package:islami_app/taps/radio_tab.dart';
 import 'package:islami_app/taps/sebha_tab.dart';
+import 'package:islami_app/taps/settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -62,8 +67,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: '',
                   backgroundColor: kPrimaryColor,
                 ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: '',
+                  backgroundColor: kPrimaryColor,
+                ),
               ]),
-          body: SebhaTab()),
+          body: tabs[currentIndex]),
     ]);
   }
+
+  List<Widget> tabs = [
+    RadioTab(),
+    SebhaTab(),
+    AhadeethTab(),
+    QuraanTab(),
+    SettingsTab()
+  ];
 }
