@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/taps/ahadeeth_tab.dart';
 import 'package:islami_app/taps/quraan_tab.dart';
