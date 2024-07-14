@@ -12,32 +12,46 @@ class QuraanTab extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        Divider(
-          thickness: 3,
-          color: kPrimaryColor,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Table(
+          border: TableBorder(
+              bottom: BorderSide(
+                color: kPrimaryColor,
+                width: 3,
+              ),
+              top: BorderSide(
+                color: kPrimaryColor,
+                width: 3,
+              ),
+              verticalInside: BorderSide(
+                color: kPrimaryColor,
+                width: 3,
+              )),
           children: [
-            Text(
-              'اسم السورة',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 25,
+            TableRow(children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                child: Text(
+                  'اسم السورة',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 25,
+                  ),
+                ),
               ),
-            ),
-            Text(
-              'اسم السورة',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 25,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                child: Text(
+                  'اسم السورة',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 25,
+                  ),
+                ),
               ),
-            ),
+            ])
           ],
-        ),
-        Divider(
-          thickness: 3,
-          color: kPrimaryColor,
         ),
         Expanded(
           child: SingleChildScrollView(
@@ -53,20 +67,40 @@ class QuraanTab extends StatelessWidget {
                     Column(
                       children: [
                         ListView.builder(
+                            padding: const EdgeInsets.only(
+                                top: 16, bottom: 16, left: 60),
+                            physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: 50,
                             itemBuilder: (context, index) {
-                              return Text('5052');
+                              return Text(
+                                '253',
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 25,
+                                ),
+                              );
                             })
                       ],
                     ),
                     Column(
                       children: [
                         ListView.builder(
+                            padding: const EdgeInsets.only(
+                                top: 16, bottom: 16, left: 80),
+                            physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: 50,
                             itemBuilder: (context, index) {
-                              return Text('البقره');
+                              return Text(
+                                'البقره',
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 25,
+                                ),
+                              );
                             })
                       ],
                     )
