@@ -1,10 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami_app/constant.dart';
+import 'package:islami_app/models/ahdeeth_model.dart';
+import 'package:islami_app/screens/hadeth_screen.dart';
 
-class AhadeethTab extends StatelessWidget {
-  const AhadeethTab({super.key});
+class AhadeethTab extends StatefulWidget {
+  AhadeethTab({super.key});
+
+  @override
+  State<AhadeethTab> createState() => _AhadeethTabState();
+}
+
+class _AhadeethTabState extends State<AhadeethTab> {
+  List<AhadeethModel> ahadeethList = [];
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    if (ahadeethList.isEmpty) {
+      loadHadeethFile();
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 10,
+        ),
+        Image.asset(
+          'assets/images/hadeth_logo.png',
+          height: 219,
+        ),
+        Divider(
+          thickness: 3,
+          color: kPrimaryColor,
+        ),
+        Text(
+          'الأحاديث',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 25,
+          ),
+        ),
+        Divider(
+          thickness: 3,
+          color: kPrimaryColor,
+        ),
+        Expanded(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: ListView.builder(
+            itemCount: ahadeethList.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, HadethScreen.routeName,
+                      arguments: ahadeethList[index]);
+                },
+                child: Text(
+                  ahadeethList[index].title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 25,
+                  ),
+                ),
+              );
+            },
+          ),
+        ))
+      ],
+    );
+  }
+
+  loadHadeethFile() {
+    rootBundle.loadString('assets/ahdeeth/ahadeth.txt').then((value) {
+      List<String> ahadeeth = value.split('#');
+      for (int i = 0; i < ahadeeth.length; i++) {
+        String everyHadeeth = ahadeeth[i];
+        List<String> hadeethLines = everyHadeeth.trim().split('\n');
+        String title = hadeethLines[0];
+        hadeethLines.removeAt(0);
+        List<String> content = hadeethLines;
+        AhadeethModel hadeethModel = AhadeethModel(title, content);
+        ahadeethList.add(hadeethModel);
+      }
+      setState(() {});
+    });
   }
 }
