@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/sura_models.dart';
 import 'package:islami_app/screens/sura_screen.dart';
@@ -250,14 +249,8 @@ class QuraanTab extends StatelessWidget {
         ),
         Table(
           border: TableBorder(
-              bottom: BorderSide(
-                color: kPrimaryColor,
-                width: 3,
-              ),
-              top: BorderSide(
-                color: kPrimaryColor,
-                width: 3,
-              ),
+              top: BorderSide(width: 3, color: kPrimaryColor),
+              bottom: BorderSide(width: 3, color: kPrimaryColor),
               verticalInside: BorderSide(
                 color: kPrimaryColor,
                 width: 3,

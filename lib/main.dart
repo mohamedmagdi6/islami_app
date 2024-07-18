@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/helper/my_them_data.dart';
 import 'package:islami_app/screens/hadeth_screen.dart';
 import 'package:islami_app/screens/home_screen.dart';
 import 'package:islami_app/screens/splash_screen.dart';
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'El Messiri',
-      ),
+      themeMode: ThemeMode.light,
+      theme: MyThemData.lightTheme,
+      darkTheme: MyThemData.darkTheme,
       initialRoute: SplashScreen.routeName,
       routes: {
         HomeScreen.routName: (context) => HomeScreen(),
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         SuraScreen.routeName: (context) => SuraScreen(),
         HadethScreen.routeName: (context) => HadethScreen(),
       },
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -19,25 +19,29 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Spacer(),
-            Image.asset(
-              'assets/images/appstore.png',
-              width: 262,
-              height: 262,
+    return Stack(
+      children: [
+        Scaffold(
+          body: Center(
+            child: Column(
+              children: [
+                Spacer(),
+                Image.asset(
+                  'assets/images/appstore.png',
+                  width: 262,
+                  height: 262,
+                ),
+                Spacer(),
+                Image.asset(
+                  'assets/images/1ebf2d114a74732b9b16454d85cd025b.png',
+                  width: 139,
+                  height: 139,
+                ),
+              ],
             ),
-            Spacer(),
-            Image.asset(
-              'assets/images/1ebf2d114a74732b9b16454d85cd025b.png',
-              width: 139,
-              height: 139,
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

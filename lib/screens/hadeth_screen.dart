@@ -20,17 +20,10 @@ class _HadethScreenState extends State<HadethScreen> {
         Image.asset('assets/images/bg3.png'),
         Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
             title: const Text(
               'إسلامي',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
             ),
           ),
-          backgroundColor: Colors.transparent,
           body: SizedBox(
             height: double.infinity,
             width: double.infinity,

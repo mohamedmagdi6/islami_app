@@ -29,10 +29,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
           'assets/images/hadeth_logo.png',
           height: 219,
         ),
-        Divider(
-          thickness: 3,
-          color: kPrimaryColor,
-        ),
+        Divider(),
         Text(
           'الأحاديث',
           textAlign: TextAlign.center,
@@ -41,10 +38,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
             fontSize: 25,
           ),
         ),
-        Divider(
-          thickness: 3,
-          color: kPrimaryColor,
-        ),
+        Divider(),
         Expanded(
             child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
