@@ -29,9 +29,27 @@ class MyThemData {
       color: kPrimaryColor,
       thickness: 3,
     ),
+    textTheme: TextTheme(
+        bodyLarge: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w400,
+          fontSize: 25,
+        ),
+        bodySmall: TextStyle(
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+        )),
   );
+
+  // light mode.
   static ThemeData darkTheme = ThemeData(
     appBarTheme: AppBarTheme(
+        foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         centerTitle: true,
         titleTextStyle: TextStyle(
@@ -57,5 +75,23 @@ class MyThemData {
       color: kYeloowColor,
       thickness: 3,
     ),
+    textTheme: TextTheme(
+        bodyLarge: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
+        ),
+        bodyMedium: TextStyle(
+          color: Colors.white,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w400,
+          fontSize: 25,
+        ),
+        bodySmall: TextStyle(
+          color: Colors.white,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+        )),
   );
 }

@@ -33,10 +33,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
         Text(
           'الأحاديث',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 25,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         Divider(),
         Expanded(
@@ -53,11 +50,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
                 child: Text(
                   ahadeethList[index].title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               );
             },

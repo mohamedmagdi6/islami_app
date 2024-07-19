@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/ahdeeth_model.dart';
+import 'package:islami_app/providers/mode_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadethScreen extends StatefulWidget {
   HadethScreen({super.key});
@@ -13,11 +15,14 @@ class HadethScreen extends StatefulWidget {
 class _HadethScreenState extends State<HadethScreen> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ModeProvider>(context);
     var hadeethModel =
         ModalRoute.of(context)!.settings.arguments as AhadeethModel;
     return Stack(
       children: [
-        Image.asset('assets/images/bg3.png'),
+        Image.asset(provider.currentMode == ThemeMode.light
+            ? 'assets/images/bg3.png'
+            : 'assets/images/dark_bg.png'),
         Scaffold(
           appBar: AppBar(
             title: const Text(
@@ -28,7 +33,9 @@ class _HadethScreenState extends State<HadethScreen> {
             height: double.infinity,
             width: double.infinity,
             child: Card(
-              color: Colors.white.withOpacity(0.8),
+              color: provider.currentMode == ThemeMode.light
+                  ? Colors.white.withOpacity(0.8)
+                  : kDarkPrimaryColor.withOpacity(0.8),
               margin: EdgeInsets.only(left: 29, right: 29, top: 30, bottom: 80),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(25))),
@@ -44,6 +51,9 @@ class _HadethScreenState extends State<HadethScreen> {
                       Text(
                         hadeethModel.title,
                         style: TextStyle(
+                          color: provider.currentMode == ThemeMode.light
+                              ? KBlackColor
+                              : kYeloowColor,
                           fontWeight: FontWeight.w400,
                           fontSize: 25,
                           fontFamily: 'Inter',
@@ -52,7 +62,6 @@ class _HadethScreenState extends State<HadethScreen> {
                     ],
                   ),
                   Divider(
-                    color: kPrimaryColor,
                     thickness: 1,
                     indent: 41.5,
                     endIndent: 41.5,
@@ -69,11 +78,12 @@ class _HadethScreenState extends State<HadethScreen> {
                             child: Text(
                               hadeethModel.content[index],
                               textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 20,
-                              ),
+                              style: provider.currentMode == ThemeMode.light
+                                  ? Theme.of(context).textTheme.bodySmall
+                                  : Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(color: kYeloowColor),
                             ),
                           );
                         },

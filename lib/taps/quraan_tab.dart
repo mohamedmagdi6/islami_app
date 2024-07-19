@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/sura_models.dart';
+import 'package:islami_app/providers/mode_provider.dart';
 import 'package:islami_app/screens/sura_screen.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class QuraanTab extends StatelessWidget {
@@ -241,6 +243,7 @@ class QuraanTab extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ModeProvider>(context);
     return Column(
       children: [
         Image.asset('assets/images/qur2an_screen_logo.png'),
@@ -249,10 +252,22 @@ class QuraanTab extends StatelessWidget {
         ),
         Table(
           border: TableBorder(
-              top: BorderSide(width: 3, color: kPrimaryColor),
-              bottom: BorderSide(width: 3, color: kPrimaryColor),
+              top: BorderSide(
+                width: 3,
+                color: provider.currentMode == ThemeMode.light
+                    ? kPrimaryColor
+                    : kYeloowColor,
+              ),
+              bottom: BorderSide(
+                width: 3,
+                color: provider.currentMode == ThemeMode.light
+                    ? kPrimaryColor
+                    : kYeloowColor,
+              ),
               verticalInside: BorderSide(
-                color: kPrimaryColor,
+                color: provider.currentMode == ThemeMode.light
+                    ? kPrimaryColor
+                    : kYeloowColor,
                 width: 3,
               )),
           children: [
@@ -262,22 +277,20 @@ class QuraanTab extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
                 child: Text(
                   'عدد الآيات',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
-                child: Text(
-                  'اسم السورة',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 25,
-                  ),
-                ),
+                child: Text('اسم السورة',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600)),
               ),
             ])
           ],
@@ -288,7 +301,9 @@ class QuraanTab extends StatelessWidget {
               child: Table(
                 border: TableBorder(
                     verticalInside: BorderSide(
-                  color: kPrimaryColor,
+                  color: provider.currentMode == ThemeMode.light
+                      ? kPrimaryColor
+                      : kYeloowColor,
                   width: 3,
                 )),
                 children: [
@@ -302,14 +317,11 @@ class QuraanTab extends StatelessWidget {
                             shrinkWrap: true,
                             itemCount: suraName.length,
                             itemBuilder: (context, index) {
-                              return Text(
-                                numberOfAyat[index],
-                                style: TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 25,
-                                ),
-                              );
+                              return Text(numberOfAyat[index],
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(fontFamily: 'Inter'));
                             })
                       ],
                     ),
@@ -330,14 +342,12 @@ class QuraanTab extends StatelessWidget {
                                           SuraModels(suraName[index], index));
                                 },
                                 child: Text(
-                                  textDirection: TextDirection.rtl,
-                                  suraName[index],
-                                  style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 25,
-                                  ),
-                                ),
+                                    textDirection: TextDirection.rtl,
+                                    suraName[index],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(fontFamily: 'Inter')),
                               );
                             })
                       ],

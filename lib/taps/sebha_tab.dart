@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
+import 'package:islami_app/helper/my_them_data.dart';
+import 'package:islami_app/providers/mode_provider.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class SebhaTab extends StatefulWidget {
@@ -19,6 +22,7 @@ String zekr = 'سبحان الله';
 class _SebhaTabState extends State<SebhaTab> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ModeProvider>(context);
     return Column(
       children: [
         Expanded(
@@ -28,7 +32,9 @@ class _SebhaTabState extends State<SebhaTab> {
               Positioned(
                   top: 25,
                   left: 190,
-                  child: Image.asset('assets/images/head_sebha_logo.png')),
+                  child: Image.asset(provider.currentMode == ThemeMode.light
+                      ? 'assets/images/head_sebha_logo.png'
+                      : 'assets/images/head_sebha_dark.png')),
               Positioned(
                 top: 100,
                 left: 90,
@@ -44,26 +50,28 @@ class _SebhaTabState extends State<SebhaTab> {
                           setState;
                         });
                       },
-                      child: Image.asset('assets/images/body_sebha_logo.png')),
+                      child: Image.asset(provider.currentMode == ThemeMode.light
+                          ? 'assets/images/body_sebha_logo.png'
+                          : 'assets/images/body_sebha_dark.png')),
                 ),
               ),
             ],
           ),
         ),
-        const Expanded(
+        Expanded(
             flex: 2,
             child: Text(
               'عدد التسبيحات',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             )),
         Container(
           width: 69,
           height: 81,
           decoration: BoxDecoration(
-              color: kPrimaryColor, borderRadius: BorderRadius.circular(24)),
+              color: provider.currentMode == ThemeMode.light
+                  ? kPrimaryColor
+                  : kDarkPrimaryColor,
+              borderRadius: BorderRadius.circular(24)),
           child: Center(
             child: Text(
               '$numOfZekr',
@@ -82,17 +90,17 @@ class _SebhaTabState extends State<SebhaTab> {
           width: 137,
           height: 51,
           decoration: BoxDecoration(
-              color: kPrimaryColor, borderRadius: BorderRadius.circular(24)),
+              color: provider.currentMode == ThemeMode.light
+                  ? kPrimaryColor
+                  : kYeloowColor,
+              borderRadius: BorderRadius.circular(24)),
           child: Center(
-            child: Text(
-              zekr,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.w400,
-                fontFamily: AutofillHints.addressState,
-              ),
-            ),
+            child: Text(zekr,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: provider.currentMode == ThemeMode.light
+                          ? Colors.white
+                          : KBlackColor,
+                    )),
           ),
         ),
         const Spacer(
