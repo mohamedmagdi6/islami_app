@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
+import 'package:islami_app/providers/mode_provider.dart';
 import 'package:islami_app/widgets/language_modal_bottom_sheet.dart';
 import 'package:islami_app/widgets/theme_modal_bottom_sheet.dart';
+import 'package:provider/provider.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ModeProvider>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -37,7 +40,7 @@ class SettingsTab extends StatelessWidget {
             },
             child: Container(
               child: Text(
-                'Light',
+                provider.currentMode == ThemeMode.light ? 'Light' : 'Dark',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               width: double.infinity,

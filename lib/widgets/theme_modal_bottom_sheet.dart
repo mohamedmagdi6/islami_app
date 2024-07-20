@@ -26,9 +26,22 @@ class ThemeModalBottomSheet extends StatelessWidget {
                 children: [
                   Text(
                     'Light',
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: provider.currentMode == ThemeMode.light
+                        ? Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: kYeloowColor)
+                        : Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: Colors.white),
                   ),
-                  Icon(Icons.done)
+                  Icon(
+                    Icons.done,
+                    color: provider.currentMode == ThemeMode.light
+                        ? kYeloowColor
+                        : Colors.transparent,
+                  )
                 ],
               ),
             ),
@@ -44,9 +57,22 @@ class ThemeModalBottomSheet extends StatelessWidget {
                 children: [
                   Text(
                     'Dark',
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: provider.currentMode == ThemeMode.dark
+                        ? Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: kYeloowColor)
+                        : Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: KBlackColor),
                   ),
-                  Icon(Icons.done)
+                  Icon(
+                    Icons.done,
+                    color: provider.currentMode == ThemeMode.dark
+                        ? kYeloowColor
+                        : Colors.transparent,
+                  )
                 ],
               ),
             )
