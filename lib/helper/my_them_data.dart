@@ -3,33 +3,33 @@ import 'package:islami_app/constant.dart';
 
 class MyThemData {
   static ThemeData lightTheme = ThemeData(
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         centerTitle: true,
         titleTextStyle: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.w700,
-          color: KBlackColor,
+          color: kBlackColor,
         )),
     scaffoldBackgroundColor: Colors.transparent,
     fontFamily: 'El Messiri',
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: false,
       backgroundColor: kPrimaryColor,
       showUnselectedLabels: false,
-      selectedItemColor: KBlackColor,
+      selectedItemColor: kBlackColor,
       unselectedItemColor: Colors.white,
       selectedIconTheme: IconThemeData(
         size: 50,
       ),
       unselectedIconTheme: IconThemeData(size: 50),
     ),
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
       color: kPrimaryColor,
       thickness: 3,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
         bodyLarge: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.w600,
@@ -48,7 +48,7 @@ class MyThemData {
 
   // light mode.
   static ThemeData darkTheme = ThemeData(
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -59,7 +59,7 @@ class MyThemData {
         )),
     scaffoldBackgroundColor: Colors.transparent,
     fontFamily: 'El Messiri',
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: false,
       backgroundColor: kDarkPrimaryColor,
@@ -71,11 +71,11 @@ class MyThemData {
       ),
       unselectedIconTheme: IconThemeData(size: 50),
     ),
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
       color: kYeloowColor,
       thickness: 3,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
         bodyLarge: TextStyle(
           color: Colors.white,
           fontSize: 25,

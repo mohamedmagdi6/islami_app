@@ -12,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-    supportedLocales: [Locale('en'), Locale('ar')],
+    supportedLocales: const [Locale('en'), Locale('ar')],
     path:
         'assets/translaltions', // <-- change the path of the translation files
     // fallbackLocale: Locale('en', 'US'),
@@ -38,12 +38,12 @@ class MyApp extends StatelessWidget {
       darkTheme: MyThemData.darkTheme,
       initialRoute: SplashScreen.routeName,
       routes: {
-        HomeScreen.routName: (context) => HomeScreen(),
-        SplashScreen.routeName: (context) => SplashScreen(),
-        SuraScreen.routeName: (context) => SuraScreen(),
-        HadethScreen.routeName: (context) => HadethScreen(),
+        HomeScreen.routName: (context) => const HomeScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        SuraScreen.routeName: (context) => const SuraScreen(),
+        HadethScreen.routeName: (context) => const HadethScreen(),
       },
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

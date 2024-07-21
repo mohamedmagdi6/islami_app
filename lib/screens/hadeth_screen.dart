@@ -6,7 +6,7 @@ import 'package:islami_app/providers/mode_provider.dart';
 import 'package:provider/provider.dart';
 
 class HadethScreen extends StatefulWidget {
-  HadethScreen({super.key});
+  const HadethScreen({super.key});
   static const routeName = 'hadethScreen';
 
   @override
@@ -37,13 +37,14 @@ class _HadethScreenState extends State<HadethScreen> {
               color: provider.currentMode == ThemeMode.light
                   ? Colors.white.withOpacity(0.8)
                   : kDarkPrimaryColor.withOpacity(0.8),
-              margin: EdgeInsets.only(left: 29, right: 29, top: 30, bottom: 80),
-              shape: RoundedRectangleBorder(
+              margin: const EdgeInsets.only(
+                  left: 29, right: 29, top: 30, bottom: 80),
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(25))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
@@ -53,7 +54,7 @@ class _HadethScreenState extends State<HadethScreen> {
                         hadeethModel.title,
                         style: TextStyle(
                           color: provider.currentMode == ThemeMode.light
-                              ? KBlackColor
+                              ? kBlackColor
                               : kYeloowColor,
                           fontWeight: FontWeight.w400,
                           fontSize: 25,
@@ -62,7 +63,7 @@ class _HadethScreenState extends State<HadethScreen> {
                       ),
                     ],
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 1,
                     indent: 41.5,
                     endIndent: 41.5,

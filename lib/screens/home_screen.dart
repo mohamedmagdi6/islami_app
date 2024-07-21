@@ -9,7 +9,7 @@ import 'package:islami_app/taps/settings_tab.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   static const routName = 'HomeScreen';
 
@@ -67,10 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> tabs = [
-    RadioTab(),
-    SebhaTab(),
-    AhadeethTab(),
+    const RadioTab(),
+    const SebhaTab(),
+    const AhadeethTab(),
     QuraanTab(),
-    SettingsTab()
+    const SettingsTab()
   ];
 }

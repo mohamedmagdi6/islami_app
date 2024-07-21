@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class SebhaTab extends StatefulWidget {
-  SebhaTab({
+  const SebhaTab({
     super.key,
   });
 
@@ -99,7 +99,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: provider.currentMode == ThemeMode.light
                           ? Colors.white
-                          : KBlackColor,
+                          : kBlackColor,
                     )),
           ),
         ),

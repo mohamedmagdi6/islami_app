@@ -12,8 +12,9 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
   void initState() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routName);
     });
     super.initState();
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
           body: Center(
             child: Column(
               children: [
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   provider.currentMode == ThemeMode.light
                       ? 'assets/images/logo2.png'
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   width: 262,
                   height: 262,
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   provider.currentMode == ThemeMode.light
                       ? 'assets/images/route_light.png'

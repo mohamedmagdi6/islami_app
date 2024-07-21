@@ -5,7 +5,7 @@ import 'package:islami_app/models/ahdeeth_model.dart';
 import 'package:islami_app/screens/hadeth_screen.dart';
 
 class AhadeethTab extends StatefulWidget {
-  AhadeethTab({super.key});
+  const AhadeethTab({super.key});
 
   @override
   State<AhadeethTab> createState() => _AhadeethTabState();
@@ -22,20 +22,20 @@ class _AhadeethTabState extends State<AhadeethTab> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Image.asset(
           'assets/images/hadeth_logo.png',
           height: 219,
         ),
-        Divider(),
+        const Divider(),
         Text(
           'ahadeeth'.tr(),
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        Divider(),
+        const Divider(),
         Expanded(
             child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),

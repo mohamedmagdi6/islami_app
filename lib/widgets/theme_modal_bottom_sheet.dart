@@ -13,6 +13,12 @@ class ThemeModalBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<ModeProvider>(context);
     return Container(
+      decoration: BoxDecoration(
+        color: provider.currentMode == ThemeMode.light
+            ? Colors.white
+            : kDarkPrimaryColor,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
@@ -46,7 +52,7 @@ class ThemeModalBottomSheet extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
@@ -66,7 +72,7 @@ class ThemeModalBottomSheet extends StatelessWidget {
                         : Theme.of(context)
                             .textTheme
                             .bodyMedium!
-                            .copyWith(color: KBlackColor),
+                            .copyWith(color: kBlackColor),
                   ),
                   Icon(
                     Icons.done,
@@ -79,12 +85,6 @@ class ThemeModalBottomSheet extends StatelessWidget {
             )
           ],
         ),
-      ),
-      decoration: BoxDecoration(
-        color: provider.currentMode == ThemeMode.light
-            ? Colors.white
-            : kDarkPrimaryColor,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
     );
   }

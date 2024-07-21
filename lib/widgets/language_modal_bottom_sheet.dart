@@ -13,6 +13,12 @@ class LanguageModalBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<ModeProvider>(context);
     return Container(
+      decoration: BoxDecoration(
+        color: provider.currentMode == ThemeMode.light
+            ? Colors.white
+            : kDarkPrimaryColor,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
@@ -20,14 +26,14 @@ class LanguageModalBottomSheet extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                context.setLocale(Locale('ar'));
+                context.setLocale(const Locale('ar'));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'arabic'.tr(),
-                    style: context.locale == Locale('ar')
+                    style: context.locale == const Locale('ar')
                         ? Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -36,26 +42,26 @@ class LanguageModalBottomSheet extends StatelessWidget {
                   ),
                   Icon(
                     Icons.done,
-                    color: context.locale == Locale('ar')
+                    color: context.locale == const Locale('ar')
                         ? kYeloowColor
                         : Colors.transparent,
                   )
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
               onTap: () {
-                context.setLocale(Locale('en'));
+                context.setLocale(const Locale('en'));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'english'.tr(),
-                    style: context.locale == Locale('en')
+                    style: context.locale == const Locale('en')
                         ? Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -64,7 +70,7 @@ class LanguageModalBottomSheet extends StatelessWidget {
                   ),
                   Icon(
                     Icons.done,
-                    color: context.locale == Locale('en')
+                    color: context.locale == const Locale('en')
                         ? kYeloowColor
                         : Colors.transparent,
                   )
@@ -73,12 +79,6 @@ class LanguageModalBottomSheet extends StatelessWidget {
             )
           ],
         ),
-      ),
-      decoration: BoxDecoration(
-        color: provider.currentMode == ThemeMode.light
-            ? Colors.white
-            : kDarkPrimaryColor,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
     );
   }

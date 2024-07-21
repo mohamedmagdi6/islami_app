@@ -248,7 +248,7 @@ class QuraanTab extends StatelessWidget {
     return Column(
       children: [
         Image.asset('assets/images/qur2an_screen_logo.png'),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Table(
@@ -316,7 +316,7 @@ class QuraanTab extends StatelessWidget {
                               top: 16,
                               bottom: 16,
                             ),
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: suraName.length,
                             itemBuilder: (context, index) {
@@ -337,7 +337,7 @@ class QuraanTab extends StatelessWidget {
                               top: 16,
                               bottom: 16,
                             ),
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: suraName.length,
                             itemBuilder: (context, index) {

@@ -37,7 +37,7 @@ class _SuraScreenState extends State<SuraScreen> {
             centerTitle: true,
             title: Text(
               'appBarTitle'.tr(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w700,
               ),
@@ -48,10 +48,17 @@ class _SuraScreenState extends State<SuraScreen> {
             height: double.infinity,
             width: double.infinity,
             child: Card(
+              color: provider.currentMode == ThemeMode.light
+                  ? Colors.white.withOpacity(0.8)
+                  : kDarkPrimaryColor.withOpacity(0.8),
+              margin: const EdgeInsets.only(
+                  left: 29, right: 29, top: 30, bottom: 80),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(25))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
@@ -64,21 +71,21 @@ class _SuraScreenState extends State<SuraScreen> {
                           fontSize: 25,
                           fontFamily: 'Inter',
                           color: provider.currentMode == ThemeMode.light
-                              ? KBlackColor
+                              ? kBlackColor
                               : kYeloowColor,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 25,
                       ),
                       Icon(
                         FontAwesomeIcons.solidCirclePlay,
                         color: provider.currentMode == ThemeMode.light
-                            ? KBlackColor
+                            ? kBlackColor
                             : kYeloowColor,
                         size: 27.2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 60.5,
                       )
                     ],
@@ -101,7 +108,7 @@ class _SuraScreenState extends State<SuraScreen> {
                             padding: const EdgeInsets.only(
                                 left: 16, right: 16, top: 8, bottom: 8),
                             child: Text(
-                              ayaat[index] + '(${index + 1})',
+                              '${ayaat[index]}(${index + 1})',
                               // textDirection: TextDirection.rtl,
                               style: provider.currentMode == ThemeMode.light
                                   ? Theme.of(context).textTheme.bodySmall
@@ -117,12 +124,6 @@ class _SuraScreenState extends State<SuraScreen> {
                   )
                 ],
               ),
-              color: provider.currentMode == ThemeMode.light
-                  ? Colors.white.withOpacity(0.8)
-                  : kDarkPrimaryColor.withOpacity(0.8),
-              margin: EdgeInsets.only(left: 29, right: 29, top: 30, bottom: 80),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(25))),
             ),
           ),
         )

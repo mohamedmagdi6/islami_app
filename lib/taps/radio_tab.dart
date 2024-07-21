@@ -12,21 +12,21 @@ class RadioTab extends StatelessWidget {
     var provider = Provider.of<ModeProvider>(context);
     return Column(
       children: [
-        Spacer(
+        const Spacer(
           flex: 3,
         ),
         Image.asset('assets/images/radio_image.png'),
-        Spacer(
+        const Spacer(
           flex: 1,
         ),
         Text(
           'alquranAlkareemRadio'.tr(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 25,
           ),
         ),
-        Spacer(
+        const Spacer(
           flex: 1,
         ),
         Row(
@@ -59,7 +59,7 @@ class RadioTab extends StatelessWidget {
                 )),
           ],
         ),
-        Spacer(
+        const Spacer(
           flex: 3,
         ),
       ],

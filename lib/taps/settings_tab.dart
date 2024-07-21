@@ -17,7 +17,7 @@ class SettingsTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Text(
@@ -27,7 +27,7 @@ class SettingsTab extends StatelessWidget {
                 .bodyLarge!
                 .copyWith(fontSize: 28, fontFamily: 'Inter'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           InkWell(
@@ -36,27 +36,27 @@ class SettingsTab extends StatelessWidget {
                   isDismissible: false,
                   context: context,
                   builder: (context) {
-                    return ThemeModalBottomSheet();
+                    return const ThemeModalBottomSheet();
                   });
             },
             child: Container(
-              child: Text(
-                provider.currentMode == ThemeMode.light
-                    ? 'light'.tr()
-                    : 'dark'.tr(),
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               decoration: BoxDecoration(
                   border: Border.all(
                     color: kPrimaryColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(25)),
+              child: Text(
+                provider.currentMode == ThemeMode.light
+                    ? 'light'.tr()
+                    : 'dark'.tr(),
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Text(
@@ -66,7 +66,7 @@ class SettingsTab extends StatelessWidget {
                 .bodyLarge!
                 .copyWith(fontSize: 28, fontFamily: 'Inter'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           InkWell(
@@ -75,22 +75,22 @@ class SettingsTab extends StatelessWidget {
                   isDismissible: false,
                   context: context,
                   builder: (context) {
-                    return LanguageModalBottomSheet();
+                    return const LanguageModalBottomSheet();
                   });
             },
             child: Container(
-              child: Text(
-                'arabic'.tr(),
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               decoration: BoxDecoration(
                   border: Border.all(
                     color: kPrimaryColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(25)),
+              child: Text(
+                'arabic'.tr(),
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
             ),
           ),
         ],
