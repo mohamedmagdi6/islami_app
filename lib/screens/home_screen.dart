@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/mode_provider.dart';
 import 'package:islami_app/taps/ahadeeth_tab.dart';
@@ -21,13 +22,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var provider = Provider.of<ModeProvider>(context);
     return Stack(children: [
-      Image.asset(provider.currentMode == ThemeMode.light
-          ? 'assets/images/bg3.png'
-          : 'assets/images/dark_bg.png'),
+      Image.asset(
+        provider.currentMode == ThemeMode.light
+            ? 'assets/images/bg3.png'
+            : 'assets/images/dark_bg.png',
+        width: double.infinity,
+      ),
       Scaffold(
           appBar: AppBar(
-            title: const Text(
-              'إسلامي',
+            title: Text(
+              'appBarTitle'.tr(),
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(

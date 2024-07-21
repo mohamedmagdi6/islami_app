@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/ahdeeth_model.dart';
 import 'package:islami_app/screens/hadeth_screen.dart';
 
@@ -31,7 +31,7 @@ class _AhadeethTabState extends State<AhadeethTab> {
         ),
         Divider(),
         Text(
-          'الأحاديث',
+          'ahadeeth'.tr(),
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyLarge,
         ),

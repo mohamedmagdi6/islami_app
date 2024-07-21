@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/providers/mode_provider.dart';
@@ -19,7 +20,7 @@ class RadioTab extends StatelessWidget {
           flex: 1,
         ),
         Text(
-          'إذاعة القرآن الكريم',
+          'alquranAlkareemRadio'.tr(),
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 25,

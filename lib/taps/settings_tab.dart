@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/providers/mode_provider.dart';
@@ -20,7 +21,7 @@ class SettingsTab extends StatelessWidget {
             height: 50,
           ),
           Text(
-            'Theme',
+            'theme'.tr(),
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
@@ -40,7 +41,9 @@ class SettingsTab extends StatelessWidget {
             },
             child: Container(
               child: Text(
-                provider.currentMode == ThemeMode.light ? 'Light' : 'Dark',
+                provider.currentMode == ThemeMode.light
+                    ? 'light'.tr()
+                    : 'dark'.tr(),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               width: double.infinity,
@@ -57,7 +60,7 @@ class SettingsTab extends StatelessWidget {
             height: 50,
           ),
           Text(
-            'Language',
+            'language'.tr(),
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
@@ -77,7 +80,7 @@ class SettingsTab extends StatelessWidget {
             },
             child: Container(
               child: Text(
-                'Arabic',
+                'arabic'.tr(),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               width: double.infinity,

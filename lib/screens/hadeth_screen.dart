@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/ahdeeth_model.dart';
@@ -25,8 +26,8 @@ class _HadethScreenState extends State<HadethScreen> {
             : 'assets/images/dark_bg.png'),
         Scaffold(
           appBar: AppBar(
-            title: const Text(
-              'إسلامي',
+            title: Text(
+              'appBarTitle'.tr(),
             ),
           ),
           body: SizedBox(
@@ -77,7 +78,7 @@ class _HadethScreenState extends State<HadethScreen> {
                                 left: 16, right: 16, top: 8, bottom: 8),
                             child: Text(
                               hadeethModel.content[index],
-                              textDirection: TextDirection.rtl,
+                              // textDirection: TextDirection.rtl,
                               style: provider.currentMode == ThemeMode.light
                                   ? Theme.of(context).textTheme.bodySmall
                                   : Theme.of(context)

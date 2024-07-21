@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,8 +35,8 @@ class _SuraScreenState extends State<SuraScreen> {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             centerTitle: true,
-            title: const Text(
-              'إسلامي',
+            title: Text(
+              'appBarTitle'.tr(),
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w700,
@@ -101,7 +102,7 @@ class _SuraScreenState extends State<SuraScreen> {
                                 left: 16, right: 16, top: 8, bottom: 8),
                             child: Text(
                               ayaat[index] + '(${index + 1})',
-                              textDirection: TextDirection.rtl,
+                              // textDirection: TextDirection.rtl,
                               style: provider.currentMode == ThemeMode.light
                                   ? Theme.of(context).textTheme.bodySmall
                                   : Theme.of(context)

@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
-import 'package:islami_app/helper/my_them_data.dart';
 import 'package:islami_app/providers/mode_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -61,7 +61,7 @@ class _SebhaTabState extends State<SebhaTab> {
         Expanded(
             flex: 2,
             child: Text(
-              'عدد التسبيحات',
+              'uumberOfTasbeehs'.tr(),
               style: Theme.of(context).textTheme.bodyLarge,
             )),
         Container(

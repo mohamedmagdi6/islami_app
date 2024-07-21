@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/providers/mode_provider.dart';
@@ -25,7 +26,7 @@ class ThemeModalBottomSheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Light',
+                    'light'.tr(),
                     style: provider.currentMode == ThemeMode.light
                         ? Theme.of(context)
                             .textTheme
@@ -56,7 +57,7 @@ class ThemeModalBottomSheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Dark',
+                    'dark'.tr(),
                     style: provider.currentMode == ThemeMode.dark
                         ? Theme.of(context)
                             .textTheme
