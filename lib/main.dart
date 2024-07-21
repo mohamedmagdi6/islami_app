@@ -17,7 +17,7 @@ void main() async {
         'assets/translaltions', // <-- change the path of the translation files
     // fallbackLocale: Locale('en', 'US'),
     child: ChangeNotifierProvider(
-        create: (context) => ModeProvider(), child: const MyApp()),
+        create: (context) => ModeProvider()..saveTheme(), child: const MyApp()),
   ));
 }
 
