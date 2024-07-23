@@ -9,10 +9,6 @@ class LoadSuraProvider extends ChangeNotifier {
 
     List<String> ayat = file.split('\n');
     ayaat = ayat;
-  }
-
-  @override
-  void notifyListeners() {
-    super.notifyListeners();
+    notifyListeners();
   }
 }

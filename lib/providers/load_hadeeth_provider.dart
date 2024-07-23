@@ -16,12 +16,8 @@ class LoadHadeethProvider extends ChangeNotifier {
         AhadeethModel hadeethModel = AhadeethModel(title, content);
         ahadeethList.add(hadeethModel);
       }
-    });
-  }
 
-  @override
-  void notifyListeners() {
-    // TODO: implement notifyListeners
-    super.notifyListeners();
+      notifyListeners();
+    });
   }
 }
