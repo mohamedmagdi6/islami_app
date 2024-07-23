@@ -1,30 +1,24 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:islami_app/constant.dart';
 import 'package:islami_app/models/sura_models.dart';
+import 'package:islami_app/providers/load_sura_provider.dart';
 import 'package:islami_app/providers/mode_provider.dart';
 import 'package:provider/provider.dart';
 
-class SuraScreen extends StatefulWidget {
-  const SuraScreen({super.key});
+class SuraScreen extends StatelessWidget {
+  SuraScreen({super.key});
   static const routeName = 'suraScreen';
 
   @override
-  State<SuraScreen> createState() => _SuraScreenState();
-}
-
-class _SuraScreenState extends State<SuraScreen> {
-  List<String> ayaat = [];
   @override
-  @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     var provider = Provider.of<ModeProvider>(context);
     var suraModel = ModalRoute.of(context)!.settings.arguments as SuraModels;
-    if (ayaat.isEmpty) {
-      loadSura(suraModel.index);
-    }
+    var loadSuraProv = Provider.of<LoadSuraProvider>(context)
+      ..loadSura(suraModel.index);
+    List<String> ayaat = loadSuraProv.ayaat;
 
     return Stack(
       children: [
@@ -129,14 +123,5 @@ class _SuraScreenState extends State<SuraScreen> {
         )
       ],
     );
-  }
-
-  loadSura(int index) async {
-    String file =
-        await rootBundle.loadString('assets/sura files/${index + 1}.txt');
-
-    List<String> ayat = file.split('\n');
-    ayaat = ayat;
-    setState(() {});
   }
 }

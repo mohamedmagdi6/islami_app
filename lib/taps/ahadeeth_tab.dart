@@ -1,24 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami_app/models/ahdeeth_model.dart';
+import 'package:islami_app/providers/load_hadeeth_provider.dart';
 import 'package:islami_app/screens/hadeth_screen.dart';
+import 'package:provider/provider.dart';
 
-class AhadeethTab extends StatefulWidget {
+class AhadeethTab extends StatelessWidget {
   const AhadeethTab({super.key});
 
   @override
-  State<AhadeethTab> createState() => _AhadeethTabState();
-}
-
-class _AhadeethTabState extends State<AhadeethTab> {
-  List<AhadeethModel> ahadeethList = [];
-
-  @override
   Widget build(BuildContext context) {
-    if (ahadeethList.isEmpty) {
-      loadHadeethFile();
-    }
+    var loadHadeethPorv = Provider.of<LoadHadeethProvider>(context)
+      ..loadHadeethFile();
+    List<AhadeethModel> ahadeethList = loadHadeethPorv.ahadeethList;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -58,21 +53,5 @@ class _AhadeethTabState extends State<AhadeethTab> {
         ))
       ],
     );
-  }
-
-  loadHadeethFile() {
-    rootBundle.loadString('assets/ahdeeth/ahadeth.txt').then((value) {
-      List<String> ahadeeth = value.split('#');
-      for (int i = 0; i < ahadeeth.length; i++) {
-        String everyHadeeth = ahadeeth[i];
-        List<String> hadeethLines = everyHadeeth.trim().split('\n');
-        String title = hadeethLines[0];
-        hadeethLines.removeAt(0);
-        List<String> content = hadeethLines;
-        AhadeethModel hadeethModel = AhadeethModel(title, content);
-        ahadeethList.add(hadeethModel);
-      }
-      setState(() {});
-    });
   }
 }
